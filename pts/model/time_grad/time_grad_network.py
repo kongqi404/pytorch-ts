@@ -40,9 +40,9 @@ class TimeGradTrainingNetwork(nn.Module):
         **kwargs,
     ) -> None:
         super().__init__(**kwargs)
-        self.target_dim = target_dim
-        self.prediction_length = prediction_length
-        self.context_length = context_length
+        self.target_dim = target_dim # 目标序列维度
+        self.prediction_length = prediction_length # 预测长度
+        self.context_length = context_length 
         self.history_length = history_length
         self.scaling = scaling
 
@@ -51,7 +51,7 @@ class TimeGradTrainingNetwork(nn.Module):
         self.lags_seq = lags_seq
 
         self.cell_type = cell_type
-        rnn_cls = {"LSTM": nn.LSTM, "GRU": nn.GRU}[cell_type]
+        rnn_cls = {"LSTM": nn.LSTM, "GRU": nn.GRU}[cell_type] # rnn class
         self.rnn = rnn_cls(
             input_size=input_size,
             hidden_size=num_cells,

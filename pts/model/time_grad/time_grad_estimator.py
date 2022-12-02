@@ -210,7 +210,7 @@ class TimeGradEstimator(PyTorchEstimator):
             scaling=self.scaling,
             conditioning_length=self.conditioning_length,
         ).to(device)
-
+    
     def create_predictor(
         self,
         transformation: Transformation,
